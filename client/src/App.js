@@ -9,6 +9,7 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
+          
           <Navbar />
           <Route exact path="/" component={Landing} />
           <Route exact path="/register" component={Register} />
