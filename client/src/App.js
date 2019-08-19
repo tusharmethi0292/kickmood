@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-<<<<<<< HEAD
+//<<<<<<< HEAD
 import { BrowserRouter as Router, Route ,Switch } from "react-router-dom";
-=======
+//=======
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
->>>>>>> 1fd1b4621ab3c9fdd9baa83f9ded5f7e2ba9e765
+//>>>>>>> 1fd1b4621ab3c9fdd9baa83f9ded5f7e2ba9e765
 import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/setAuthToken";
 import { setCurrentUser, logoutUser } from "./actions/authActions";
