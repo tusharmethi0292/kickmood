@@ -1,5 +1,10 @@
 import React, { Component } from "react";
+<<<<<<< HEAD
 import { Link,withRouter } from "react-router-dom";
+=======
+import { withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
+>>>>>>> 1fd1b4621ab3c9fdd9baa83f9ded5f7e2ba9e765
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
@@ -26,26 +31,26 @@ class Register extends Component {
   }
 
 
-onChange = e => {
+  onChange = e => {
     this.setState({ [e.target.id]: e.target.value });
   };
-onSubmit = e => {
+  onSubmit = e => {
     e.preventDefault();
-const newUser = {
+    const newUser = {
       name: this.state.name,
       email: this.state.email,
       password: this.state.password,
       password2: this.state.password2
     };
 
-console.log(newUser);
-this.props.registerUser(newUser, this.props.history); 
+    console.log(newUser);
+    this.props.registerUser(newUser, this.props.history);
   };
 
-  
-render() {
+
+  render() {
     const { errors } = this.state;
-return (
+    return (
       <div className="container">
         <div className="row">
           <div className="col s8 offset-s2">
@@ -149,17 +154,17 @@ return (
 
 
 Register.propTypes = {
-    registerUser: PropTypes.func.isRequired,
-    auth: PropTypes.object.isRequired,
-    errors: PropTypes.object.isRequired
-  };
+  registerUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired
+};
 
 const mapStateToProps = state => ({
-    auth: state.auth,
-    errors: state.errors
-  });
+  auth: state.auth,
+  errors: state.errors
+});
 
 export default connect(
-    mapStateToProps,
-    { registerUser }
-  )(withRouter(Register));
+  mapStateToProps,
+  { registerUser }
+)(withRouter(Register));
