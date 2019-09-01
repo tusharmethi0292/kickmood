@@ -14,13 +14,8 @@ const store = createStore(
   rootReducer,
   initialState,
   compose(
-<<<<<<< HEAD
-    applyMiddleware(...middleware),
-    
-=======
     applyMiddleware(...middleware, logger),
     // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
->>>>>>> 1fd1b4621ab3c9fdd9baa83f9ded5f7e2ba9e765
   )
 );
 export default store;

@@ -4,11 +4,14 @@
   "description": "social media for moods",
   "main": "server.js",
   "scripts": {
+    "tsc": "tsc -w",
     "client-install": "npm install --prefix client",
     "start": "node server.js",
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "backapp": "tsc && node build/app.js",
+    "startserver":""
   },
   "author": "",
   "license": "ISC",
@@ -34,6 +37,7 @@
     "validator": "^11.1.0"
   },
   "devDependencies": {
+    "@types/node": "^12.7.3",
     "nodemon": "^1.19.1"
   }
 }

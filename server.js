@@ -1,9 +1,12 @@
 const express = require("express");
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
 const users = require("./routes/api/users");
+const keys = require("./config/keys");
 const app = express();
+
+const { connect, set, connection } = require('mongoose');
 // Bodyparser middleware
 app.use(
   bodyParser.urlencoded({
@@ -12,17 +15,30 @@ app.use(
 );
 app.use(bodyParser.json());
 // DB Config
-const db = require("./config/keys").mongoURI;
+// const db = require("./config/keys").mongoURIlocal;
+// const db = require("./config/keys").mongoURI;
 // Connect to MongoDB
-mongoose
-  .connect(
-    db,
-    { useNewUrlParser: true }
-  )
-  .then(() => console.log("MongoDB successfully connected"))
-  .catch(err => console.log(err));
 
-  // Passport middleware
+connection.on('error', err => { console.error('%s', err) })
+  .on('close', (error) => {
+    console.log(error);
+  })
+connect(keys.mongoURIlocal, { useCreateIndex: true, useNewUrlParser: true }, function (err) {
+  if (err) {
+    return Promise.reject(err)
+  }
+  console.log('Mongo db connected')
+})
+
+// mongoose
+//   .connect(
+//     db,
+//     { useNewUrlParser: true }
+//   )
+//   .then(() => console.log("MongoDB successfully connected"))
+//   .catch(err => console.log(err));
+
+// Passport middleware
 app.use(passport.initialize());
 // Passport config
 require("./config/passport")(passport);

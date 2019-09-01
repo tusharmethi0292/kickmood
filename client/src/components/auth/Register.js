@@ -1,10 +1,6 @@
 import React, { Component } from "react";
-<<<<<<< HEAD
-import { Link,withRouter } from "react-router-dom";
-=======
 import { withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
->>>>>>> 1fd1b4621ab3c9fdd9baa83f9ded5f7e2ba9e765
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
@@ -146,7 +142,7 @@ class Register extends Component {
 
   componentDidMount() {
     // If logged in and user navigates to Register page, should redirect them to dashboard
-    if (this.props.auth.isAuthenticated) {
+    if (this.props.auth && this.props.auth.isAuthenticated) {
       this.props.history.push("/dashboard");
     }
   };
