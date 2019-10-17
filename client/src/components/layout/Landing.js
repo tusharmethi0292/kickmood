@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 class Landing extends Component {
   render() {
     return (
-      <div style={{ height: "75vh" }} className="container valign-wrapper">
+      <div style={{ height: "25vh" }} className="container valign-wrapper">
         <div className="row">
           <div className="col s12 center-align">
             <h4>
@@ -37,10 +37,32 @@ class Landing extends Component {
                 Log In
               </Link>
             </div>
+
+          
+
+
+
+
+
+
+
+
           </div>
         </div>
       </div>
-    );
+
+      );
+    
+    
+      var img = new Image();
+      img.src = '/assets/happy.png';
+      img.onclick = function() {
+          window.location.href = 'http://localhost:3000/Happy';
+      };
+      document.body.appendChild(img);
+  
   }
 }
+
+
 export default Landing;
