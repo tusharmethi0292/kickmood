@@ -53,13 +53,14 @@ class Landing extends Component {
 
       );
     
+    <link 
+     to = "/models/Happy"
+      
+    >
+    <img></img>
     
-      var img = new Image();
-      img.src = '/assets/happy.png';
-      img.onclick = function() {
-          window.location.href = 'http://localhost:3000/Happy';
-      };
-      document.body.appendChild(img);
+    </link>
+  
   
   }
 }
