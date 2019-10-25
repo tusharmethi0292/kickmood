@@ -54,10 +54,9 @@ class Landing extends Component {
       );
     
     <link 
-     to = "/models/Happy"
-      
+     to = {".../models/Happy"}
     >
-    <img></img>
+    <img src ="../assets/happy.png" alt="Be Happy" height="200" width="200"/> 
     
     </link>
   
