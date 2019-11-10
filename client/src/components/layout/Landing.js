@@ -1,15 +1,32 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-class Landing extends Component {
+// import logo from ;
+class Moodhappy extends React.Component {
+  render() {
+    return <div className="happy">
+
+      <Link
+        to="/happy"
+
+      >
+        <img src={require('../../assets/angel1.png')} alt="be happy" height="50px" width="50px"/>
+      </Link>
+
+    </div>
+  }
+};
+
+class Login extends React.Component {
   render() {
     return (
-      <div style={{ height: "25vh" }} className="container valign-wrapper">
+      <div style={{ height: "25vh" }
+      } className="container valign-wrapper" >
         <div className="row">
           <div className="col s12 center-align">
             <h4>
-            What do you feel now !
+              What do you feel now !
             </h4>
-            
+
             <br />
             <div className="col s6">
               <Link
@@ -37,30 +54,24 @@ class Landing extends Component {
                 Log In
               </Link>
             </div>
-
-          
-
-
-
-
-
-
-
-
           </div>
         </div>
-      </div>
+      </div >
+    )
+  }
 
-      );
-    
-    <link 
-     to = {".../models/Happy"}
-    >
-    <img src ="../assets/happy.png" alt="Be Happy" height="200" width="200"/> 
-    
-    </link>
-  
-  
+};
+class Landing extends Component {
+  render() {
+    return (
+      <React.Fragment>
+        <Login></Login>
+        <Moodhappy></Moodhappy>
+      </React.Fragment>
+    );
+
+
+
   }
 }
 
