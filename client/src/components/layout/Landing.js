@@ -9,7 +9,53 @@ class Moodhappy extends React.Component {
         to="/happy"
 
       >
-        <img src={require('../../assets/angel1.png')} alt="be happy" height="50px" width="50px"/>
+        <img src={require('../../assets/happy.png')} alt="be happy" height="50px" width="50px"/>
+      </Link>
+
+    </div>
+  }
+};
+
+class Moodcool extends React.Component {
+  render() {
+    return <div className="cool">
+
+      <Link
+        to="/cool"
+
+      >
+        <img src={require('../../assets/cool.png')} alt="be happy" height="50px" width="50px"/>
+      </Link>
+
+    </div>
+  }
+};
+
+class Moodhelping extends React.Component {
+  render() {
+    return <div className="helping">
+
+      <Link
+        to="/helping"
+
+      >
+        <img src={require('../../assets/helping.png')} alt="be happy" height="50px" width="50px"/>
+      </Link>
+
+    </div>
+  }
+};
+
+
+class Moodhopeful extends React.Component {
+  render() {
+    return <div className="cool">
+
+      <Link
+        to="/cool"
+
+      >
+        <img src={require('../../assets/hopeful.png')} alt="be happy" height="50px" width="50px"/>
       </Link>
 
     </div>
@@ -67,6 +113,7 @@ class Landing extends Component {
       <React.Fragment>
         <Login></Login>
         <Moodhappy></Moodhappy>
+        <Moodcool></Moodcool>
       </React.Fragment>
     );
 
