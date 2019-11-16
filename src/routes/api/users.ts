@@ -10,7 +10,8 @@ import { keys } from "../../config/keys";
 import { validateRegisterInput } from "../../validation/register";
 import { validateLoginInput } from "../../validation/login";
 // Load User model
-const User = require("../../models/User");
+
+import { User } from '../../models/User';
 
 // @route POST api/users/register
 // @desc Register user
@@ -97,4 +98,4 @@ router.post("/login", (req, res) => {
   });
 });
 
-module.exports = router;
+export let UserRouter = router;

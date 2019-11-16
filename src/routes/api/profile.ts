@@ -1,13 +1,12 @@
 import * as express from "express";
-import * as mongoose from "mongoose";
 import * as passport from "passport";
 const router = express.Router();
 // Load Validation
-const validateProfileInput = require('../../validation/profile');
+// import * as validateProfileInput from './../validation/profile'
 // Load Profile Model
-const Profile = require('../../models/Profile');
+import { Profile } from '../../models/Profile';
 // Load User Model
-const User = require('../../models/User');
+import { User } from '../../models/User';
 
 
 /**
@@ -41,7 +40,7 @@ router.get(
   (req, res) => {
     let errors: errors;
 
-    Profile.findOne({ user: req.user.id })
+    Profile.findOne({ user: req.user['id'] })
       .populate('user', ['name', 'avatar'])
       .then(profile => {
         if (!profile) {
@@ -122,16 +121,14 @@ router.post(
   '/',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
-    const { errors, isValid } = validateProfileInput(req.body);
-    // Check Validation
-    if (!isValid) {
-      // Return any errors with 400 status
-      return res.status(400).json(errors);
-    }
-
+    // const { errors, isValid } = validateProfileInput(req.body);
+    // if (!isValid) {
+    //   return res.status(400).json(errors);
+    // }
+    let errors = { handle: "", };
     // Get fields
     let profileFields: profile;
-    profileFields.user = req.user.id;
+    profileFields.user = req.user['id'];
     if (req.body.handle) profileFields.handle = req.body.handle;
     if (req.body.company) profileFields.company = req.body.company;
     if (req.body.website) profileFields.website = req.body.website;
@@ -143,7 +140,7 @@ router.post(
 
     // Create or Edit current user profile with unique handle
     Profile
-      .findOne({ user: req.user.id })
+      .findOne({ user: req.user['id'] })
       .then(profile => {
         // If profile not exist, then create a new one, Otherwise just update 
 
@@ -166,14 +163,14 @@ router.post(
           Profile
             .findOne({ handle: profileFields.handle })
             .then(p => {
-              if (profile.handle !== p.handle) {
-                errors.handle = 'handle already exists';
-                res.status(400).json(errors);
-              }
+              // if (profile.handle !== p.handle) {
+              //   errors.handle = 'handle already exists';
+              //   res.status(400).json(errors);
+              // }
             });
           Profile
             .findOneAndUpdate(
-              { user: req.user.id },
+              { user: req.user['id'] },
               { $set: profileFields },
               { new: true }
             )
@@ -191,12 +188,12 @@ router.delete(
   '/',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
-    Profile.findOneAndRemove({ user: req.user.id }).then(() => {
-      User.findOneAndRemove({ _id: req.user.id }).then(() =>
+    Profile.findOneAndRemove({ user: req.user['id'] }).then(() => {
+      User.findOneAndRemove({ _id: req.user['id'] }).then(() =>
         res.json({ success: true })
       );
     });
   }
 );
 
-module.exports = router;
+export const ProfileRoute = router;

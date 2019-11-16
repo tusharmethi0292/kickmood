@@ -15,6 +15,7 @@
   },
   "author": "",
   "license": "ISC",
+  "proxy": "http://localhost:5000",
   "dependencies": {
     "axios": "^0.19.0",
     "bcryptjs": "^2.4.3",
@@ -37,7 +38,23 @@
     "validator": "^11.1.0"
   },
   "devDependencies": {
-    "@types/node": "^12.7.5",
-    "nodemon": "^1.19.1"
+    "@types/body-parser": "^1.17.1",
+    "@types/config": "0.0.34",
+    "@types/express": "^4.17.1",
+    "@types/mongoose": "^5.5.16",
+    "@types/node": "^12.7.3",
+    "nodemon": "^1.19.1",
+    "@types/passport": "^1.0.1",
+    "@types/ws": "^6.0.3",
+    "eslint-plugin-typescript": "^0.14.0",
+    "standard": "^14.1.0",
+    "typescript": "^3.6.2",
+    "typescript-eslint-parser": "^22.0.0"
+  },
+  "standard": {
+    "parser": "typescript-eslint-parser",
+    "plugins": [
+      "typescript"
+    ]
   }
 }
