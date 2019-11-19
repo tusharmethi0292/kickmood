@@ -1,24 +1,28 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 // import logo from ;
-class Moodhappy extends React.Component {
+
+class Mood extends React.Component {
+  
   render() {
-    return <div className="happy">
+     
+    return (
+
+       <div className = "Mood" style= {{display :"inline-block"}}>  
+    
+    <div className="happy">
 
       <Link
         to="/happy"
 
       >
-        <img src={require('../../assets/happy.png')} alt="be happy always" height="50px" width="50px"/>
+        <img src={require('../../assets/happy.png')} alt="be happy always" height="100px" width="100px"/>
       </Link>
 
     </div>
-  }
-};
+  
 
-class Moodcool extends React.Component {
-  render() {
-    return <div className="cool">
+ <div className="cool">
 
       <Link
         to="/cool"
@@ -28,12 +32,9 @@ class Moodcool extends React.Component {
       </Link>
 
     </div>
-  }
-};
 
-class Moodhelping extends React.Component {
-  render() {
-    return <div className="helping">
+
+     <div className="helping">
 
       <Link
         to="/helping"
@@ -43,13 +44,10 @@ class Moodhelping extends React.Component {
       </Link>
 
     </div>
-  }
-};
+  
 
 
-class Moodhopeful extends React.Component {
-  render() {
-    return <div className="hopeful">
+    <div className="hopeful">
 
       <Link
         to="/hopeful"
@@ -59,13 +57,10 @@ class Moodhopeful extends React.Component {
       </Link>
 
     </div>
-  }
-};
+  
 
 
-class Moodlove extends React.Component {
-  render() {
-    return <div className="love">
+    <div className="love">
 
       <Link
         to="/love"
@@ -75,12 +70,8 @@ class Moodlove extends React.Component {
       </Link>
 
     </div>
-  }
-};
-
-class Moodmotivation extends React.Component {
-  render() {
-    return <div className="motivation">
+  
+    <div className="motivation">
 
       <Link
         to="/motivation"
@@ -90,12 +81,8 @@ class Moodmotivation extends React.Component {
       </Link>
 
     </div>
-  }
-};
-
-class Moodsurprised extends React.Component {
-  render() {
-    return <div className="surprised">
+  
+    <div className="surprised">
 
       <Link
         to="/surprised"
@@ -105,13 +92,8 @@ class Moodsurprised extends React.Component {
       </Link>
 
     </div>
-  }
-};
 
-
-class Moodthinking extends React.Component {
-  render() {
-    return <div className="thinking">
+    <div className="thinking">
 
       <Link
         to="/thinking"
@@ -121,13 +103,8 @@ class Moodthinking extends React.Component {
       </Link>
 
     </div>
-  }
-};
-
-
-class Moodsporty extends React.Component {
-  render() {
-    return <div className="sporty">
+   
+     <div className="sporty">
 
       <Link
         to="/sporty"
@@ -137,12 +114,8 @@ class Moodsporty extends React.Component {
       </Link>
 
     </div>
-  }
-};
 
-class Moodspiritual extends React.Component {
-  render() {
-    return <div className="spiritual">
+    <div className="spiritual">
 
       <Link
         to="/spiritual"
@@ -152,6 +125,10 @@ class Moodspiritual extends React.Component {
       </Link>
 
     </div>
+
+    </div>
+
+    );
   }
 };
 
@@ -208,18 +185,7 @@ class Landing extends Component {
     return (
       <React.Fragment>
         <Login></Login>
-        <Moodhappy></Moodhappy>
-        <Moodcool></Moodcool>
-        <Moodhelping></Moodhelping>
-        <Moodlove></Moodlove>
-        <Moodthinking></Moodthinking>
-        <Moodthinking></Moodthinking>
-        <Moodmotivation></Moodmotivation>
-        <Moodsporty></Moodsporty>
-        <Moodsurprised></Moodsurprised>
-        <Moodhopeful></Moodhopeful>
-        <Moodspiritual></Moodspiritual>
-
+        <Mood></Mood>
       </React.Fragment>
     );
 
