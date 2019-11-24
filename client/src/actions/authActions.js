@@ -10,7 +10,7 @@ import { backendUrl } from '../constants';
 // Register User
 export const registerUser = (userData, history) => dispatch => {
   axios
-    .post(`$backendUrl`+"/api/users/register", userData)
+    .post(`${backendUrl}`+"/api/register", userData)
     .then(res => history.push("/login")) // re-direct to login on successful register
     .catch(err =>
       dispatch({
