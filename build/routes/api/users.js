@@ -7,18 +7,18 @@ const jwt = require("jsonwebtoken");
 const keys_1 = require("../../config/keys");
 const register_1 = require("../../validation/register");
 const login_1 = require("../../validation/login");
-const User = require("../../models/User");
+const User_1 = require("../../models/User");
 router.post("/register", (req, res) => {
     const { errors, isValid } = register_1.validateRegisterInput(req.body);
     if (!isValid) {
         return res.status(400).json(errors);
     }
-    User.findOne({ email: req.body.email }).then(user => {
+    User_1.User.findOne({ email: req.body.email }).then(user => {
         if (user) {
             return res.status(400).json({ email: "Email already exists" });
         }
         else {
-            const newUser = new User({
+            const newUser = new User_1.User({
                 name: req.body.name,
                 email: req.body.email,
                 password: req.body.password
@@ -44,7 +44,7 @@ router.post("/login", (req, res) => {
     }
     const email = req.body.email;
     const password = req.body.password;
-    User.findOne({ email }).then(user => {
+    User_1.User.findOne({ email }).then(user => {
         if (!user) {
             return res.status(404).json({ emailnotfound: "Email not found" });
         }
@@ -71,5 +71,5 @@ router.post("/login", (req, res) => {
         });
     });
 });
-module.exports = router;
+exports.UserRouter = router;
 //# sourceMappingURL=users.js.map
