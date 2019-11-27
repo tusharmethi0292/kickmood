@@ -12,7 +12,7 @@ import { keys } from "./config/keys";
 import * as path from 'path';
 // import * as models from "./models";
 // import * as passportAny from "../config/passport";
-import { CONSTANT } from "./../src/constant/constant";
+import { CONSTANT } from "./constant/constant";
 
 
 class App {

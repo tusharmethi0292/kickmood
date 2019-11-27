@@ -10,8 +10,11 @@ import { backendUrl } from '../constants';
 // Register User
 export const registerUser = (userData, history) => dispatch => {
   axios
-    .post(`${backendUrl}`+"/api/register", userData)
-    .then(res => history.push("/login")) // re-direct to login on successful register
+    .post(`${backendUrl}` + "/api/register", userData)
+    .then(res => {
+      console.log(res);
+      history.push("/login")
+    }) // re-direct to login on successful register
     .catch(err =>
       dispatch({
         type: GET_ERRORS,
@@ -22,7 +25,7 @@ export const registerUser = (userData, history) => dispatch => {
 // Login - get user token
 export const loginUser = userData => dispatch => {
   axios
-    .post(`$backendUrl`+"/api/users/login", userData)
+    .post(`$backendUrl` + "/api/users/login", userData)
     .then(res => {
       // Save to localStorage
       // Set token to localStorage
